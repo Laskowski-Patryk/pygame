@@ -54,12 +54,13 @@ class Ball:
 
         tolerance = 3
         for block in newlist:
-            block.color = (0, 255, 0)
+            # block.color = (0, 255, 0)
 
             if abs(self.xy[1] - self.radius - (block.y + 30)) <= tolerance:  # top
                 if block.x + block.width >= self.xy[0] >= block.x:
                     self.vel[1] = abs(self.vel[1])
                     collide = 1
+                    block.droploot()
                     blocks.remove(block)
                     continue
 
@@ -67,6 +68,7 @@ class Ball:
                 if block.x + block.width >= self.xy[0] >= block.x:
                     self.vel[1] = -abs(self.vel[1])
                     collide = 1
+                    block.droploot()
                     blocks.remove(block)
                     continue
 
@@ -74,6 +76,7 @@ class Ball:
                 if block.y + 30 >= self.xy[1] >= block.y:
                     self.vel[0] = abs(self.vel[0])
                     collide = 1
+                    block.droploot()
                     blocks.remove(block)
                     continue
 
@@ -81,6 +84,7 @@ class Ball:
                 if block.y + 30 >= self.xy[1] >= block.y:
                     self.vel[0] = -abs(self.vel[0])
                     collide = 1
+                    block.droploot()
                     blocks.remove(block)
                     continue
 
@@ -92,6 +96,7 @@ class Ball:
                 else:
                     self.vel[1] = abs(self.vel[1])
                 collide = 1
+                block.droploot()
                 blocks.remove(block)
                 continue
 
@@ -103,6 +108,7 @@ class Ball:
                 else:
                     self.vel[1] = -abs(self.vel[1])
                 collide = 1
+                block.droploot()
                 blocks.remove(block)
                 continue
 
@@ -114,6 +120,7 @@ class Ball:
                 else:
                     self.vel[1] = -abs(self.vel[1])
                 collide = 1
+                block.droploot()
                 blocks.remove(block)
                 continue
 
@@ -125,6 +132,7 @@ class Ball:
                 else:
                     self.vel[0] = -abs(self.vel[0])
                 collide = 1
+                block.droploot()
                 blocks.remove(block)
                 continue
 
